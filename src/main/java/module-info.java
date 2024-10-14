@@ -2,7 +2,8 @@ module com.example.weatherappjane {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
-
+    requires org.json;
+    requires java.sql;
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
