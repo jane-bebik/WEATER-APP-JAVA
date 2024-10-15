@@ -1,3 +1,5 @@
+package com.example.weatherappjane;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -7,7 +9,7 @@ import org.json.JSONObject;
 
 
 public class WeatherAPI {
-    private static final String API_KEY = "im not giving u my api key >=c";
+    private static final String API_KEY = "2481912797331af28779738135bf3500";
     private static final String BASE_URL = "http://api.openweathermap.org/data/2.5/weather";
 
     public static JSONObject getWeatherData(String city) {

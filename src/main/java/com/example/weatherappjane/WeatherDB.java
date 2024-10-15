@@ -1,10 +1,12 @@
+package com.example.weatherappjane;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class WeatherDB {
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/WeatherApp";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/com.example.weatherappjane.WeatherApp";
     private static final String USER = "root";
     private static final String PASS = "password";
 
