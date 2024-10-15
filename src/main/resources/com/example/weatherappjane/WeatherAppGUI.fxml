@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.weatherappjane.WeatherAppController"
+      spacing="10" alignment="CENTER">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <children>
+        <Label text="Enter City:"/>
+        <TextField fx:id="cityInput"/>
+        <Button text="Get Weather" onAction="#fetchWeatherData"/>
+        <Label fx:id="resultLabel"/>
+    </children>
+</VBox>
+
