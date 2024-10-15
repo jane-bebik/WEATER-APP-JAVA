@@ -1,15 +1,17 @@
-
 package com.example.weatherappjane;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WeatherDB {
 
     private static final String DB_URL = "jdbc:mysql://localhost:3306/weatherapp";
     private static final String USER = "root";
-    private static final String PASS = "07U8o|p`:AZN"; // i forgot to put my password lol
+    private static final String PASS = "07U8o|p`:AZN";  // Replace with actual password
 
     public static Connection connect() {
         try {
@@ -37,5 +39,29 @@ public class WeatherDB {
                 e.printStackTrace();
             }
         }
+    }
+
+    // New method to retrieve last 10 weather data entries
+    public static List<String> getLast10Entries() {
+        List<String> entries = new ArrayList<>();
+        Connection conn = connect();
+        if (conn != null) {
+            try {
+                String query = "SELECT city, temperature, description FROM weather_data ORDER BY id DESC LIMIT 10";
+                PreparedStatement stmt = conn.prepareStatement(query);
+                ResultSet rs = stmt.executeQuery();
+                while (rs.next()) {
+                    String city = rs.getString("city");
+                    double temp = rs.getDouble("temperature");
+                    String description = rs.getString("description");
+                    entries.add("City: " + city + ", Temp: " + temp + "°C, Description: " + description);
+                }
+                stmt.close();
+                conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return entries;
     }
 }

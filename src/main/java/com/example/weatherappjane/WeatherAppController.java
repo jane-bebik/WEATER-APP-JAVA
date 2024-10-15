@@ -1,4 +1,3 @@
-
 package com.example.weatherappjane;
 
 import javafx.fxml.FXML;
@@ -7,6 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.json.JSONObject;
 
+import java.util.List;
+
 public class WeatherAppController {
 
     @FXML
@@ -14,6 +15,9 @@ public class WeatherAppController {
 
     @FXML
     private Label resultLabel;
+
+    @FXML
+    private Label last10EntriesLabel;  // Add a new label in FXML for displaying the last 10 entries
 
     @FXML
     private Button getWeatherButton;
@@ -36,6 +40,15 @@ public class WeatherAppController {
 
                 // Optionally save the data to MySQL
                 WeatherDB.saveWeatherData(city, temp, description);
+
+                // Fetch and display the last 10 entries
+                List<String> lastEntries = WeatherDB.getLast10Entries();
+                StringBuilder lastEntriesText = new StringBuilder("Last 10 Entries:\n");
+                for (String entry : lastEntries) {
+                    lastEntriesText.append(entry).append("\n");
+                }
+                last10EntriesLabel.setText(lastEntriesText.toString());
+
             } else {
                 resultLabel.setText("Error fetching weather data.");
             }

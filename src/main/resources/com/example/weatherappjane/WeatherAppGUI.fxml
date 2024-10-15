@@ -17,5 +17,6 @@
         <TextField fx:id="cityInput"/>
         <Button text="Get Weather" onAction="#fetchWeatherData"/>
         <Label fx:id="resultLabel"/>
+        <Label fx:id="last10EntriesLabel"/>  <!-- New label for displaying last 10 entries -->
     </children>
 </VBox>
