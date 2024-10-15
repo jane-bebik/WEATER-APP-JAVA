@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 
 public class WeatherDB {
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/com.example.weatherappjane.WeatherApp";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/weatherapp";
     private static final String USER = "root";
-    private static final String PASS = "password";
+    private static final String PASS = "07U8o|p`:AZN"; // i forgot to put my password lol
 
     public static Connection connect() {
         try {
