@@ -1,3 +1,4 @@
+
 package com.example.weatherappjane;
 
 import java.sql.Connection;
@@ -8,7 +9,7 @@ public class WeatherDB {
 
     private static final String DB_URL = "jdbc:mysql://localhost:3306/weatherapp";
     private static final String USER = "root";
-    private static final String PASS = "no passworkd for you stinkyyyy"; // i forgot to put my password lol
+    private static final String PASS = "07U8o|p`:AZN"; // i forgot to put my password lol
 
     public static Connection connect() {
         try {
