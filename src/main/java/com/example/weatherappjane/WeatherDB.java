@@ -11,7 +11,7 @@ public class WeatherDB {
 
     private static final String DB_URL = "jdbc:mysql://localhost:3306/weatherapp";
     private static final String USER = "root";
-    private static final String PASS = "07U8o|p`:AZN";  // Replace with actual password
+    private static final String PASS = "passwordhere";
 
     public static Connection connect() {
         try {
@@ -41,7 +41,7 @@ public class WeatherDB {
         }
     }
 
-    // New method to retrieve last 10 weather data entries
+    // Ensure this method is implemented in the WeatherDB class
     public static List<String> getLast10Entries() {
         List<String> entries = new ArrayList<>();
         Connection conn = connect();
@@ -63,5 +63,29 @@ public class WeatherDB {
             }
         }
         return entries;
+    }
+
+    // Add the getAllWeatherData() method if not already in WeatherDB
+    public static List<WeatherRecord> getAllWeatherData() {
+        List<WeatherRecord> records = new ArrayList<>();
+        Connection conn = connect();
+        if (conn != null) {
+            try {
+                String query = "SELECT city, temperature, description FROM weather_data";
+                PreparedStatement stmt = conn.prepareStatement(query);
+                ResultSet rs = stmt.executeQuery();
+                while (rs.next()) {
+                    String city = rs.getString("city");
+                    double temp = rs.getDouble("temperature");
+                    String description = rs.getString("description");
+                    records.add(new WeatherRecord(city, temp, description));
+                }
+                stmt.close();
+                conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return records;
     }
 }

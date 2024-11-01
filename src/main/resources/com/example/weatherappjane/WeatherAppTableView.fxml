@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.weatherappjane.WeatherAppTableController">
+    <Label text="Weather Data Table" />
+    <TableView fx:id="weatherTable">
+        <columns>
+            <TableColumn text="City" fx:id="cityColumn" />
+            <TableColumn text="Temperature (°C)" fx:id="tempColumn" />
+            <TableColumn text="Description" fx:id="descColumn" />
+        </columns>
+    </TableView>
+    <Button text="Back to Chart" onAction="#backToChart"/>
+</VBox>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.GridPane?>
 
@@ -12,17 +15,27 @@
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 
-    <!-- Application title -->
     <Label text="Jane's Weather App" id="appTitle" GridPane.rowIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER"/>
 
-    <!-- Space between title and content -->
-    <Label text="" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+    <!-- Input field for city search -->
+    <Label text="Enter City:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextField fx:id="cityInput" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
-    <Label text="Enter City:" id="cityLabel" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-    <TextField fx:id="cityInput" id="cityInputField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    <!-- Button to fetch weather data -->
+    <Button text="Get Weather" onAction="#fetchWeatherData" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
-    <Button text="Get Weather" id="weatherButton" onAction="#fetchWeatherData" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    <!-- Result label to display fetched data -->
+    <Label fx:id="resultLabel" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
-    <Label fx:id="resultLabel" id="resultLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-    <Label fx:id="last10EntriesLabel" id="last10EntriesLabel" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+    <!-- BarChart with embedded axes -->
+    <BarChart fx:id="weatherChart" title="Temperature of Last 10 Entries" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="2" prefWidth="800">
+        <xAxis>
+            <CategoryAxis label="City"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Temperature (°C)"/>
+        </yAxis>
+    </BarChart>
+
+    <Button text="Show Table View" fx:id="showTableButton" onAction="#showTableView" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
 </GridPane>
