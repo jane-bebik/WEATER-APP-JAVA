@@ -11,7 +11,7 @@ public class WeatherDB {
 
     private static final String DB_URL = "jdbc:mysql://localhost:3306/weatherapp";
     private static final String USER = "root";
-    private static final String PASS = "passwordhere";
+    private static final String PASS = "07U8o|p`:AZN";
 
     public static Connection connect() {
         try {
